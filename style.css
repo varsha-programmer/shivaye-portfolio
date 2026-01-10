@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #ff9800;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.services {
+    text-align: center;
+    padding: 30px;
+}
+
+.card {
+    background: white;
+    width: 250px;
+    display: inline-block;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.contact {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.qr {
+    width: 120px;
+    margin-top: 10px;
+}
+
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.whatsapp {
+    background-color: #25D366;
+}
+
+.youtube {
+    background-color: #FF0000;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743);
+}
+.info-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    width: 300px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.info-box button {
+    margin-top: 15px;
+    padding: 10px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.details {
+    display: none;
+    background: #fff;
+    padding: 15px;
+    margin: 10px auto 30px;
+    width: 300px;
+    border-left: 5px solid #ff9800;
+    box-shadow: 0 0 10px #ccc;
+}

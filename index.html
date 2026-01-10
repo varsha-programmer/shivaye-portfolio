@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shivaay Construction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f2f4f7;
+}
+
+/* HEADER */
+header{
+    background:#111;
+    color:#fff;
+    padding:20px;
+    text-align:center;
+}
+
+header a{
+    color:#25D366;
+    text-decoration:none;
+}
+
+/* CARDS */
+.container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    padding:40px 20px;
+}
+
+.card{
+    width:300px;
+    background:#fff;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:15px 15px 0 0;
+}
+
+.card h2{
+    text-align:center;
+    padding:15px;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+    z-index:10;
+}
+
+.modal-box{
+    background:#fff;
+    width:90%;
+    max-width:500px;
+    border-radius:15px;
+    padding:25px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:10px;
+    font-size:22px;
+    color:red;
+    cursor:pointer;
+}
+
+.modal-box img{
+    width:100%;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.modal-box ul{
+    padding-left:18px;
+}
+
+.modal-box li{
+    margin:6px 0;
+}
+
+/* FORM */
+.form-section{
+    background:#fff;
+    padding:30px 20px;
+    max-width:500px;
+    margin:30px auto;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+input,textarea,select,button{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+
+button{
+    background:#111;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:#fff;
+    padding:25px;
+    text-align:center;
+}
+
+footer img{
+    width:120px;
+    margin-top:10px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:#fff;
+    padding:14px 20px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Shivaay Construction JCB & Dumper Services</h1>
+    <p>📞 8720885864 | 📧 ravi872088@gmail.com</p>
+    <p>📞 6260096100 | 📧 vishwakarmarahul686@gmail.com</p>
+    <p>📸 Instagram: <a href="https://www.instagram.com/ravi_vishwakarma_8720?igsh=cTRxY3dyM3IzZDMz" target="_blank">@yourid</a></p>
+</header>
+
+<!-- CARDS -->
+<div class="container">
+    <div class="card" onclick="openModal('jcb')">
+        <img src="images/jcb.jpg">
+        <h2>JCB</h2>
+    </div>
+
+    <div class="card" onclick="openModal('dumper')">
+        <img src="images/dumper.jpg">
+        <h2>Dumper</h2>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <span class="close" onclick="closeModal()">×</span>
+        <img id="mImg">
+        <h2 id="mTitle"></h2>
+        <div id="mDetails"></div>
+        <p><b>Contact:</b> 8720885864</p>
+        <p><b>Contact:</b> 6260096100 </p>
+        <p><b>Email:</b> ravi872088@gmail.com</p>
+        <p><b>Email:</b> vishwakarmarahul686@gmail.com</p>
+    </div>
+</div>
+
+<!-- WHATSAPP BOOKING FORM -->
+<div class="form-section">
+    <h2>Book Service on WhatsApp</h2>
+
+    <form onsubmit="sendWhatsApp(); return false;">
+        <input type="text" id="name" placeholder="Ravi Vishwakarma" required>
+        <input type="tel" id="phone" placeholder="8720885864" required>
+
+        <select id="service" required>
+            <option value="">Select Service</option>
+            <option>JCB</option>
+            <option>Dumper</option>
+        </select>
+
+        <textarea id="details" placeholder="Work Details"></textarea>
+
+        <button type="submit">Send on WhatsApp</button>
+    </form>
+</div>
+
+<!-- YOUTUBE BUTTON -->
+<div style="text-align:center; margin:30px 0;">
+    <a href="https://youtube.com/@shivaay2780?si=aidtcuRwMz-tNGsS"
+       target="_blank"
+       style="background:red; color:white; padding:12px 18px;
+              border-radius:8px; text-decoration:none; font-weight:bold;">
+        📺 Visit Our YouTube Channel
+    </a>
+</div>
+
+<footer>
+    <p>📞 8720885864 | 📧 ravi872088@gmail.com</p>
+    <p>📞 6260096100 | 📧 vishwakarmarahul686@gmail.com</p>
+    <p>Scan QR to payment</p>
+    <img src="images/ravi.jpg.jpeg">
+</footer>
+
+<a class="whatsapp" href="https://wa.me/918720885864" target="_blank">WhatsApp</a>
+
+<script>
+function openModal(type){
+    document.getElementById("modal").style.display="flex";
+
+    if(type==="jcb"){
+        mImg.src="images/jcb.jpg";
+        mTitle.innerText="JCB Work & Rates";
+        mDetails.innerHTML=`
+        <ul>
+            <li><b>Pipeline Work:</b> ₹170 per pipe</li>
+            <li><b>Hourly Rate:</b> ₹1200 per hour</li>
+            <li><b>JCB Monthly Attachment Rental Charges:</b> ₹120,000 per month</li>
+            <li><b>✔ मकान निर्माण के लिए गड्ढे खोदना ✔ फाउंडेशन खुदाई कार्य ✔ तेज़, सुरक्षित और भरोसेमंद सेवा</b></li>
+        </ul>`;
+    } else if(type==="dumper"){
+        mImg.src="images/dumper.jpg";
+        mTitle.innerText="Dumper Work & Rates";
+        mDetails.innerHTML=`
+        <ul>
+            <li><b>Dumper Per Trip:</b> ₹2000</li>
+            <li><b>Hourly Rate:</b> ₹1000 per hour</li>
+            <li><b>✔ सामग्री ढुलाई ✔ तेज़ और सुरक्षित सेवा</b></li>
+        </ul>`;
+    }
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+
+// WhatsApp form function
+function sendWhatsApp() {
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const service = document.getElementById("service").value;
+    const details = document.getElementById("details").value;
+
+    const message = `Hello Shivaay Construction,\n\nNaam: ${name}\nPhone: ${phone}\nService: ${service}\nDetails: ${details}`;
+
+    const whatsappNumber = "918720885864";
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
