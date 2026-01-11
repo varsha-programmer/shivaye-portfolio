@@ -19,10 +19,18 @@ header{
     padding:20px;
     text-align:center;
 }
-
 header a{
     color:#25D366;
     text-decoration:none;
+}
+
+/* LANGUAGE BUTTON */
+.lang-btn button{
+    padding:6px 14px;
+    margin:5px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
 }
 
 /* CARDS */
@@ -42,18 +50,13 @@ header a{
     cursor:pointer;
     transition:0.3s;
 }
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
+.card:hover{ transform:translateY(-10px); }
 .card img{
     width:100%;
     height:200px;
     object-fit:cover;
     border-radius:15px 15px 0 0;
 }
-
 .card h2{
     text-align:center;
     padding:15px;
@@ -63,25 +66,19 @@ header a{
 .modal{
     display:none;
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    inset:0;
     background:rgba(0,0,0,0.7);
     justify-content:center;
     align-items:center;
-    z-index:10;
 }
-
 .modal-box{
     background:#fff;
     width:90%;
-    max-width:500px;
+    max-width:520px;
     border-radius:15px;
     padding:25px;
     position:relative;
 }
-
 .close{
     position:absolute;
     right:15px;
@@ -89,20 +86,6 @@ header a{
     font-size:22px;
     color:red;
     cursor:pointer;
-}
-
-.modal-box img{
-    width:100%;
-    border-radius:10px;
-    margin-bottom:15px;
-}
-
-.modal-box ul{
-    padding-left:18px;
-}
-
-.modal-box li{
-    margin:6px 0;
 }
 
 /* FORM */
@@ -114,7 +97,6 @@ header a{
     border-radius:15px;
     box-shadow:0 10px 20px rgba(0,0,0,0.15);
 }
-
 input,textarea,select,button{
     width:100%;
     padding:12px;
@@ -122,8 +104,6 @@ input,textarea,select,button{
     border-radius:8px;
     border:1px solid #ccc;
 }
-
-
 button{
     background:#111;
     color:#fff;
@@ -138,7 +118,6 @@ footer{
     padding:25px;
     text-align:center;
 }
-
 footer img{
     width:120px;
     margin-top:10px;
@@ -162,151 +141,161 @@ footer img{
 <body>
 
 <header>
-    <h1>Shivaay Construction JCB & Dumper Services</h1>
-    <p>📞 8720885864 | 📧 ravi872088@gmail.com</p>
-    <p>📞 6260096100 | 📧 vishwakarmarahul686@gmail.com</p>
-    <p>📸 Instagram: <a href="https://www.instagram.com/ravi_vishwakarma_8720?igsh=cTRxY3dyM3IzZDMz" target="_blank">@yourid</a></p>
+<h1 id="title">Shivaay Construction JCB & Dumper Services</h1>
+
+<p>
+📞 8720885864 | 📧 ravi872088@gmail.com <br>
+📞 6260096100 | 📧 vishwakarmarahul686@gmail.com
+</p>
+
+<p>📸 Instagram:
+<a href="https://www.instagram.com/ravi_vishwakarma_8720" target="_blank">@yourid</a>
+</p>
+
+<div class="lang-btn">
+<button onclick="setLang('en')">English</button>
+<button onclick="setLang('hi')">हिंदी</button>
+</div>
 </header>
 
 <!-- CARDS -->
 <div class="container">
-    <div class="card" onclick="openModal('jcb')">
-        <img src="images/jcb.jpg">
-        <h2>JCB</h2>
-    </div>
+<div class="card" onclick="openModal('jcb')">
+<img src="images/jcb.jpg">
+<h2>JCB</h2>
+</div>
 
-    <div class="card" onclick="openModal('dumper')">
-        <img src="images/dumper.jpg">
-        <h2>Dumper</h2>
-    </div>
+<div class="card" onclick="openModal('dumper')">
+<img src="images/dumper.jpg">
+<h2>Dumper</h2>
+</div>
 </div>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
-    <div class="modal-box">
-        <span class="close" onclick="closeModal()">×</span>
-        <img id="mImg">
-        <h2 id="mTitle"></h2>
-        <div id="mDetails"></div>
-        <p><b>Contact:</b> 8720885864</p>
-        <p><b>Contact:</b> 6260096100 </p>
-        <p><b>Email:</b> ravi872088@gmail.com</p>
-        <p><b>Email:</b> vishwakarmarahul686@gmail.com</p>
-    </div>
+<div class="modal-box">
+<span class="close" onclick="closeModal()">×</span>
+<h2 id="mTitle"></h2>
+<div id="mDetails"></div>
+
+<p><b>Contact:</b> 8720885864</p>
+<p><b>Contact:</b> 6260096100</p>
+</div>
 </div>
 
-<!-- WHATSAPP BOOKING FORM -->
+<!-- WHATSAPP FORM -->
 <div class="form-section">
-    <h2>Book Service on WhatsApp</h2>
+<h2 id="formTitle">Book Service on WhatsApp</h2>
 
-    <form onsubmit="sendWhatsApp(); return false;">
-        <input type="text" id="name" placeholder="Ravi Vishwakarma" required>
-        <input type="tel" id="phone" placeholder="8720885864" required>
+<form onsubmit="sendWhatsApp();return false;">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
 
-        <select id="service" required>
-            <option value="">Select Service</option>
-            <option>JCB</option>
-            <option>Dumper</option>
-        </select>
+<select id="service" required>
+<option value="">Select Service</option>
+<option>JCB</option>
+<option>Dumper</option>
+</select>
 
-        <textarea id="details" placeholder="Work Details"></textarea>
-
-        <button type="submit">Send on WhatsApp</button>
-    </form>
+<textarea id="details" placeholder="Work Details"></textarea>
+<button id="btnText">Send on WhatsApp</button>
+</form>
 </div>
 
-<!-- YOUTUBE BUTTON -->
+<!-- ✅ YOUTUBE BUTTON (WAPAS ADD KIYA) -->
 <div style="text-align:center; margin:30px 0;">
-    <a href="https://youtube.com/@shivaay2780?si=aidtcuRwMz-tNGsS"
-       target="_blank"
-       style="background:red; color:white; padding:12px 18px;
-              border-radius:8px; text-decoration:none; font-weight:bold;">
-        📺 Visit Our YouTube Channel
-    </a>
+<a href="https://youtube.com/@shivaay2780?si=aidtcuRwMz-tNGsS"
+target="_blank"
+style="background:red; color:white; padding:12px 18px;
+border-radius:8px; text-decoration:none; font-weight:bold;">
+📺 Visit Our YouTube Channel
+</a>
 </div>
 
 <footer>
-    <p>📞 8720885864 | 📧 ravi872088@gmail.com</p>
-    <p>📞 6260096100 | 📧 vishwakarmarahul686@gmail.com</p>
-    <p>Scan QR to payment</p>
-    <img src="images/ravi.jpg.jpeg">
-    <p>Scan QR to payment</p>
-    <img src="images/rahul.jpg.jpeg">
+<p>Scan QR to payment</p>
+<img src="images/ravi.jpg.jpeg">
+<p>Scan QR to payment</p>
+<img src="images/rahul.jpg.jpeg">
 </footer>
 
 <a class="whatsapp" href="https://wa.me/918720885864" target="_blank">WhatsApp</a>
 
 <script>
+let lang="en";
+
+function setLang(l){
+lang=l;
+title.innerText = l==="hi" ?
+"शिवाय कंस्ट्रक्शन | जेसीबी और डम्पर सेवाएं" :
+"Shivaay Construction JCB & Dumper Services";
+
+formTitle.innerText = l==="hi" ?
+"व्हाट्सएप पर सेवा बुक करें" :
+"Book Service on WhatsApp";
+
+btnText.innerText = l==="hi" ?
+"व्हाट्सएप पर भेजें" :
+"Send on WhatsApp";
+}
+
 function openModal(type){
-    document.getElementById("modal").style.display="flex";
+modal.style.display="flex";
 
-    if(type==="jcb"){
-        mImg.src="images/jcb.jpg";
-        mTitle.innerText="JCB Work & Rates";
-        mDetails.innerHTML=`
-        <ul>
-            <li><b>Pipeline Work:</b> ₹170 per pipe</li>
-            <li><b>Hourly Rate:</b> ₹1200 per hour</li>
-            <li><b>JCB Monthly Attachment Rental Charges:</b> ₹120,000 per month</li>
-            <li><b>✔ मकान निर्माण के लिए गड्ढे खोदना ✔ फाउंडेशन खुदाई कार्य ✔ तेज़, सुरक्षित और भरोसेमंद सेवा</b></li>
-        </ul>`;
-    } else if(type==="dumper"){
-        mImg.src="images/dumper.jpg";
-        mTitle.innerText="Dumper Work & Rates";
-        mDetails.innerHTML=`
-        <ul>
-             <li><b>Hello Shivaay Construction,
-
-We offer Dumper services for contract work.  
-- Dumper up to 1 km: ₹500  
-- Beyond 1 km: ₹500 + ₹300 per additional km  
-- Safe, reliable, and timely service</b></li>
-
-            <li><b>Dumper Per Trip:</b> ₹2000</li>
-            <li><b> Black soil -₹500/per km </b></li>
-            <li><b> Highway dumper 10 vehicles Available</b></li>
-            <li><b> Material-Wise Rate (per km)</b></li>
-            <li><b> Kali mitti -₹500/per km</b></li>
-            <li><b> Reti - -₹500/per km</b></li>
-            <li><b> Gitti - -₹500/per km</b></li>
-            <li><b> Red-Muram - -₹500/per km</b></li>
-            <li><b>Hello Shivaay Construction, 
-
-            We offer Dumper services for contract work. 
-            - Material transportation
-            - Hourly & per-trip rental options
-            - Safe, reliable, and timely service
-            </b></li>
-
-            <li><b> Dumper per trip -₹2000</b></li>
-            <li><b>Hourly Rate:</b> ₹1200 per hour</li>
-            <li><b>✔ सामग्री ढुलाई ✔ तेज़ और सुरक्षित सेवा</b></li>
-            <li><b> Fast and secure material transportation services</b></li>
-        </ul>`;
-    }
+if(type==="jcb"){
+mTitle.innerText = lang==="hi" ? "जेसीबी कार्य व रेट" : "JCB Work & Rates";
+mDetails.innerHTML = lang==="hi" ? `
+<ul>
+<li>पाइपलाइन कार्य – ₹170 प्रति पाइप</li>
+<li>प्रति घंटा दर – ₹1200</li>
+<li>मासिक अटैचमेंट चार्ज – ₹1,20,000</li>
+<li>मकान निर्माण हेतु खुदाई</li>
+<li>फाउंडेशन खुदाई कार्य</li>
+<li>तेज़, सुरक्षित व भरोसेमंद सेवा</li>
+</ul>` : `
+<ul>
+<li>Pipeline work – ₹170 per pipe</li>
+<li>Hourly rate – ₹1200 per hour</li>
+<li>Monthly attachment – ₹120,000</li>
+<li>House construction excavation</li>
+<li>Foundation digging work</li>
+<li>Fast, safe & reliable service</li>
+</ul>`;
 }
 
-function closeModal(){
-    document.getElementById("modal").style.display="none";
+if(type==="dumper"){
+mTitle.innerText = lang==="hi" ? "डम्पर कार्य व रेट" : "Dumper Work & Rates";
+mDetails.innerHTML = lang==="hi" ? `
+<ul>
+<li>1 किमी तक – ₹500</li>
+<li>1 किमी से अधिक – ₹500 + ₹300 प्रति किमी</li>
+<li>प्रति ट्रिप – ₹2000</li>
+<li>काली मिट्टी / रेत / गिट्टी / मुरम – ₹500 प्रति किमी</li>
+<li>हाइवे डम्पर – 10 वाहन उपलब्ध</li>
+<li>सुरक्षित व समय पर ढुलाई</li>
+</ul>` : `
+<ul>
+<li>Up to 1 km – ₹500</li>
+<li>Beyond 1 km – ₹500 + ₹300 per km</li>
+<li>Per trip – ₹2000</li>
+<li>Soil / Sand / Gitti / Murum – ₹500 per km</li>
+<li>Highway dumper – 10 vehicles available</li>
+<li>Safe & timely transportation</li>
+</ul>`;
+}
 }
 
-// WhatsApp form function
-function sendWhatsApp() {
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const service = document.getElementById("service").value;
-    const details = document.getElementById("details").value;
+function closeModal(){ modal.style.display="none"; }
 
-    const message = `Hello Shivaay Construction,\n\nNaam: ${name}\nPhone: ${phone}\nService: ${service}\nDetails: ${details}`;
+function sendWhatsApp(){
+const msg=`Name: ${name.value}
+Phone: ${phone.value}
+Service: ${service.value}
+Details: ${details.value}`;
 
-    const whatsappNumber = "918720885864";
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
+window.open("https://wa.me/918720885864?text="+encodeURIComponent(msg));
 }
 </script>
 
 </body>
 </html>
-
-
-
